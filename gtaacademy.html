@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GTA Academy - The GTA Academy powering the GTAV and GTA6 Creator Economy. Start building your GTA business today.</title>
+<meta name="description" content="GTA Academy - The GTA Academy powering the GTAV and GTA6 Creator Economy. Start building your GTA business today.">
+<meta property="og:title" content="GTA Academy - The GTA Academy">
+<meta property="og:description" content="The GTA Academy powering the GTAV and GTA6 Creator Economy. Start building your GTA business today.">
+<meta property="og:image" content="rc-icon-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="rc-icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="rc-icon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="rc-icon-180.png">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #000000;
+  --onyx: #1A1A2E;
+  --blue: #7B4F9E;
+  --white: #FFFFFF;
+  --emerald: #D4A574;
+  --violet: #8B6BAE;
+  --cloud: rgba(255,255,255,0.08);
+  --silver: rgba(255,255,255,0.15);
+  --graphite: #1A1A2E;
+  --muted: rgba(26,26,46,0.55);
+  --light-border: rgba(26,26,46,0.1);
+  --orange: #C4856A;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1A1A2E;
+  background: linear-gradient(180deg, #8A7BA6 0%, #A08CB0 20%, #B49A9C 40%, #C4A49A 60%, #CEAB8A 80%, #D4B89A 100%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  display: none;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgb(58, 41, 77);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+.header-inner {
+  max-width: 1280px; margin: 0 auto; padding: 0 24px; height: 68px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.gta-academy-wordmark { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 30px; letter-spacing: 0.01em; text-transform: uppercase; line-height: 1; display: inline-flex; gap: 10px; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.45)); }
+.gta-academy-wordmark .gta-part, .gta-academy-wordmark .academy-part { -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; -webkit-text-stroke: 1px rgba(0,0,0,0.55); paint-order: stroke fill; }
+.gta-academy-wordmark .gta-part { background-image: linear-gradient(180deg, #BD9045 0%, #E1B86F 14%, #F7E7B3 28%, #FEF6CE 42%, #7A5630 55%, #AD8147 68%, #D3A662 85%, #C9953A 100%); }
+.gta-academy-wordmark .academy-part { background-image: linear-gradient(180deg, #907492 0%, #AF6693 14%, #C86D8A 28%, #DB7299 42%, #9A517E 55%, #D65C8E 68%, #F67981 85%, #F7927C 100%); }
+.footer-left .gta-academy-wordmark { font-size: 24px; }
+
+nav { display: flex; align-items: center; gap: 28px; }
+nav a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
+nav a:hover, nav a.active { color: var(--white); }
+nav .cta-btn { background: #7B4F9E; color: var(--white); padding: 8px 18px; border-radius: 8px; font-weight: 600; font-size: 14px; transition: background 0.2s; }
+nav .cta-btn:hover { background: #6A3F8E; }
+
+.hero { padding: 130px 24px 48px; text-align: center; background: transparent; }
+.hero h1 { font-size: 44px; font-weight: 900; color: var(--onyx); text-transform: uppercase; line-height: 1.15; margin-bottom: 12px; letter-spacing: -0.02em; }
+.hero p.subtitle { font-size: 17px; color: var(--onyx); max-width: 580px; margin: 0 auto 28px; }
+.hero-stats { display: flex; justify-content: center; gap: 40px; margin-bottom: 32px; flex-wrap: wrap; }
+.hero-stat { text-align: center; }
+.hero-stat .stat-num { font-size: 32px; font-weight: 700; color: var(--onyx); line-height: 1.1; }
+.hero-stat .stat-label { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.hero-cta { display: inline-block; background: #7B4F9E; color: var(--white); padding: 14px 36px; border-radius: 10px; font-weight: 700; font-size: 16px; text-decoration: none; transition: background 0.2s; }
+.hero-cta:hover { background: #6A3F8E; }
+
+.pricing-toggle { display: flex; justify-content: center; align-items: center; gap: 12px; margin-top: 20px; }
+.pricing-toggle span { font-size: 14px; font-weight: 600; color: var(--muted); }
+.pricing-toggle span.active-toggle { color: var(--onyx); }
+.toggle-track { width: 44px; height: 24px; border-radius: 12px; background: var(--silver); position: relative; cursor: pointer; transition: background 0.2s; }
+.toggle-track.annual { background: #7B4F9E; }
+.toggle-knob { width: 18px; height: 18px; border-radius: 50%; background: var(--white); position: absolute; top: 3px; left: 3px; transition: left 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+.toggle-track.annual .toggle-knob { left: 23px; }
+.save-badge { font-size: 12px; font-weight: 700; color: #7B4F9E; background: rgba(123,79,158,0.15); padding: 2px 8px; border-radius: 4px; }
+
+.section { max-width: 1280px; margin: 0 auto; padding: 64px 24px 0; }
+.section-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; }
+.section-header h2 { font-size: 24px; font-weight: 900; color: var(--graphite); letter-spacing: 0.02em; text-transform: uppercase; }
+.section-tag { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 3px 10px; border-radius: 4px; }
+.tag-blue    { background: rgba(26,63,255,0.1); color: var(--blue); }
+.tag-emerald { background: rgba(5,150,105,0.1); color: var(--emerald); }
+.tag-violet  { background: rgba(124,58,237,0.1); color: var(--violet); }
+.tag-red     { background: rgba(220,38,38,0.1); color: #dc2626; }
+.tag-orange  { background: rgba(234,88,12,0.1); color: var(--orange); }
+.tag-onyx    { background: rgba(17,24,39,0.08); color: var(--onyx); }
+.section-desc { font-size: 15px; color: rgba(26,26,46,0.6); max-width: 700px; margin-bottom: 24px; }
+
+.plan-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-bottom: 32px; max-width: 880px; margin-left: auto; margin-right: auto; }
+.plan-card { border-radius: 14px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.3); backdrop-filter: blur(16px); padding: 32px 28px 28px; position: relative; transition: transform 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; }
+.plan-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(26,26,46,0.12); }
+.plan-card.featured { border: 2px solid #7B4F9E; }
+.plan-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #7B4F9E; color: var(--white); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 14px; border-radius: 12px; white-space: nowrap; }
+.plan-name { font-size: 20px; font-weight: 800; color: var(--graphite); text-transform: uppercase; margin-bottom: 4px; }
+.plan-tagline { font-size: 13px; color: var(--muted); margin-bottom: 20px; }
+.plan-price { margin-bottom: 20px; }
+.plan-price .price-amount { font-size: 36px; font-weight: 700; color: var(--onyx); line-height: 1; }
+.plan-price .price-period { font-size: 14px; color: var(--muted); margin-left: 2px; }
+.plan-price .price-annual { display: none; }
+.annual-active .plan-price .price-monthly { display: none; }
+.annual-active .plan-price .price-annual { display: block; }
+.plan-features { list-style: none; margin-bottom: 24px; flex-grow: 1; }
+.plan-features li { font-size: 14px; color: var(--graphite); padding: 6px 0; border-bottom: 1px solid var(--light-border); display: flex; align-items: center; gap: 8px; }
+.plan-features li:last-child { border-bottom: none; }
+.plan-features li .check { color: #D4A574; font-weight: 700; font-size: 15px; flex-shrink: 0; }
+.plan-btn { display: block; width: 100%; text-align: center; padding: 12px 16px; border-radius: 10px; font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; transition: opacity 0.15s; text-decoration: none; border: none; }
+.plan-btn-outline { background: rgba(255,255,255,0.5); color: var(--graphite); border: 1px solid rgba(255,255,255,0.4); }
+.plan-btn-outline:hover { background: rgba(255,255,255,0.7); }
+.plan-btn-primary { background: #7B4F9E; color: var(--white); }
+.plan-btn-primary:hover { opacity: 0.88; }
+.plan-btn-dark { background: #2D1B4E; color: var(--white); }
+.plan-btn-dark:hover { opacity: 0.88; }
+
+.track-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.track-card { background: rgba(255,255,255,0.25); border-radius: 12px; border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(12px); overflow: hidden; transition: transform 0.15s, box-shadow 0.15s; cursor: pointer; }
+.track-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(26,26,46,0.12); }
+.track-thumb { height: 140px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 700; color: rgba(255,255,255,0.9); text-shadow: 0 2px 8px rgba(0,0,0,0.5); background-size: cover; background-position: center; }
+.track-thumb.t-lua { background: linear-gradient(135deg, rgba(123,79,158,0.15), rgba(212,165,116,0.1)); }
+.track-thumb.t-fivem { background: linear-gradient(135deg, rgba(123,79,158,0.15), rgba(212,165,116,0.1)); }
+.track-thumb.t-script { background: linear-gradient(135deg, rgba(123,79,158,0.15), rgba(212,165,116,0.1)); }
+.track-thumb.t-content { background: linear-gradient(135deg, rgba(123,79,158,0.15), rgba(212,165,116,0.1)); }
+.track-thumb.t-server { background: linear-gradient(135deg, rgba(123,79,158,0.15), rgba(212,165,116,0.1)); }
+.track-thumb.t-econ { background: linear-gradient(135deg, rgba(123,79,158,0.15), rgba(212,165,116,0.1)); }
+.track-thumb.t-rp { background: linear-gradient(135deg, rgba(123,79,158,0.15), rgba(212,165,116,0.1)); }
+.track-thumb.t-gta6 { background: linear-gradient(135deg, rgba(123,79,158,0.15), rgba(212,165,116,0.1)); }
+.track-thumb.t-ai { background: linear-gradient(135deg, rgba(123,79,158,0.15), rgba(212,165,116,0.1)); }
+.palm-tree { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cdefs%3E%3ClinearGradient id='trunk' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0%25' stop-color='%237B4F9E'/%3E%3Cstop offset='100%25' stop-color='%234A2D6E'/%3E%3C/linearGradient%3E%3ClinearGradient id='leaves' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%238B6BAE'/%3E%3Cstop offset='100%25' stop-color='%236A3F8E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M98 190 L98 95 Q97 85 100 80' stroke='url(%23trunk)' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3Cpath d='M100 80 Q85 60 55 55 Q80 58 95 70 Q90 50 75 30 Q92 48 100 68 Q105 45 110 25 Q108 50 102 68 Q112 48 130 35 Q115 55 105 70 Q120 58 145 55 Q115 62 100 80Z' fill='url(%23leaves)'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: center; background-size: 70%; }
+.track-meta { display: flex; align-items: center; justify-content: flex-end; font-size: 12px; color: var(--muted); }
+.track-info { padding: 14px 16px 16px; }
+.track-info h4 { font-size: 15px; font-weight: 800; color: var(--graphite); line-height: 1.3; margin-bottom: 4px; }
+.track-info p { font-size: 13px; color: var(--muted); line-height: 1.5; margin-bottom: 8px; }
+.track-meta .track-level { font-weight: 600; }
+
+.leaderboard-table { width: 100%; border-collapse: collapse; margin-bottom: 32px; }
+.leaderboard-table th { text-align: left; padding: 10px 14px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(26,26,46,0.5); border-bottom: 2px solid rgba(26,26,46,0.1); }
+.leaderboard-table td { padding: 12px 14px; font-size: 14px; color: var(--graphite); border-bottom: 1px solid rgba(26,26,46,0.08); }
+.leaderboard-table tr:hover td { background: rgba(255,255,255,0.15); }
+.leaderboard-table .rank-cell { font-weight: 700; color: var(--onyx); width: 40px; }
+.leaderboard-table .model-cell { font-weight: 700; color: var(--onyx); }
+.leaderboard-table .score-cell { font-weight: 700; color: #7B4F9E; font-variant-numeric: tabular-nums; }
+.leaderboard-table .bar-cell { width: 200px; }
+.score-bar-track { height: 6px; background: rgba(26,26,46,0.08); border-radius: 3px; overflow: hidden; }
+.score-bar-fill { height: 100%; border-radius: 3px; background: #7B4F9E; transition: width 0.4s ease; }
+
+.findings-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+.finding-card { padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.25); backdrop-filter: blur(12px); }
+.finding-card h3 { font-size: 16px; font-weight: 800; color: var(--graphite); margin-bottom: 8px; }
+.finding-card p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+
+.rubric-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; margin-top: 20px; }
+.rubric-card { padding: 16px 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.2); backdrop-filter: blur(8px); }
+.rubric-card h4 { font-size: 14px; font-weight: 700; color: var(--onyx); margin-bottom: 4px; }
+.rubric-card p { font-size: 13px; color: var(--muted); line-height: 1.5; }
+
+.bundle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.bundle-card { background: rgba(45,27,78,0.85); border-radius: 14px; border: 1px solid rgba(255,255,255,0.12); backdrop-filter: blur(12px); padding: 28px 24px; color: var(--white); transition: transform 0.15s, box-shadow 0.15s; }
+.bundle-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.2); }
+.bundle-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+.bundle-card .bundle-count { font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 14px; }
+.bundle-card ul { list-style: none; margin-bottom: 18px; }
+.bundle-card ul li { font-size: 13px; color: rgba(255,255,255,0.7); padding: 4px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.bundle-card ul li:last-child { border-bottom: none; }
+
+.custom-builds-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; margin-top: 8px; }
+.custom-builds-copy { background: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(12px); border-radius: 14px; padding: 28px; height: 100%; box-sizing: border-box; }
+.custom-builds-copy h3 { font-size: 18px; font-weight: 800; color: var(--onyx); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.02em; }
+.custom-builds-copy p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 14px; }
+.custom-builds-copy ul { list-style: none; padding: 0; margin: 0; }
+.custom-builds-copy ul li { font-size: 14px; color: var(--onyx); padding: 8px 0; border-bottom: 1px solid rgba(26,26,46,0.08); display: flex; gap: 10px; align-items: flex-start; }
+.custom-builds-copy ul li:last-child { border-bottom: none; }
+.custom-builds-copy ul li .check { color: #7B4F9E; font-weight: 800; }
+.contact-form { background: rgba(255,255,255,0.25); border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(12px); border-radius: 14px; padding: 28px; height: 100%; box-sizing: border-box; }
+.contact-form h3 { font-size: 18px; font-weight: 800; color: var(--onyx); margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.02em; }
+.form-row { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.form-row label { font-size: 12px; font-weight: 700; color: var(--onyx); text-transform: uppercase; letter-spacing: 0.04em; }
+.form-row input, .form-row select, .form-row textarea { font-family: inherit; font-size: 14px; padding: 10px 12px; border-radius: 8px; border: 1px solid rgba(26,26,46,0.15); background: rgba(255,255,255,0.7); color: var(--onyx); outline: none; transition: border-color 0.15s, background 0.15s; }
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: #7B4F9E; background: rgba(255,255,255,0.9); }
+.form-row textarea { resize: vertical; min-height: 90px; }
+.form-row-split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.form-row-split .form-row { margin-bottom: 0; }
+.form-submit { background: #7B4F9E; color: var(--white); padding: 12px 28px; border-radius: 10px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; font-family: inherit; text-transform: uppercase; letter-spacing: 0.04em; transition: background 0.2s; }
+.form-submit:hover { background: #9366B8; }
+.form-success { display: none; padding: 14px 16px; border-radius: 10px; background: rgba(123,79,158,0.12); border: 1px solid rgba(123,79,158,0.3); color: var(--onyx); font-size: 14px; margin-top: 12px; }
+.form-success.show { display: block; }
+.cb-modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26,26,46,0.6); backdrop-filter: blur(6px); z-index: 1000; justify-content: center; align-items: center; }
+.cb-modal-overlay.show { display: flex; }
+.cb-modal { background: linear-gradient(135deg, #ffffff 0%, #f5ebf5 100%); border-radius: 16px; padding: 36px 32px; max-width: 440px; width: calc(100% - 32px); text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,0.3); border: 1px solid rgba(123,79,158,0.2); }
+.cb-modal h3 { font-size: 20px; font-weight: 800; color: var(--onyx); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.02em; }
+.cb-modal p { font-size: 15px; color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
+.cb-modal button { background: #7B4F9E; color: var(--white); padding: 12px 32px; border-radius: 10px; font-weight: 700; font-size: 14px; border: none; cursor: pointer; font-family: inherit; text-transform: uppercase; letter-spacing: 0.04em; transition: background 0.2s; }
+.cb-modal button:hover { background: #9366B8; }
+@media (max-width: 880px) { .custom-builds-wrap { grid-template-columns: 1fr; } .form-row-split { grid-template-columns: 1fr; } }
+
+.faq-list { max-width: 1280px; }
+.faq-item { border-bottom: 1px solid rgba(26,26,46,0.1); }
+.faq-q { display: flex; justify-content: space-between; align-items: center; padding: 16px 0; cursor: pointer; user-select: none; }
+.faq-q h4 { font-size: 15px; font-weight: 700; color: var(--onyx); }
+.faq-q .faq-icon { font-size: 18px; color: var(--muted); font-weight: 700; transition: transform 0.2s; flex-shrink: 0; margin-left: 16px; }
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height 0.25s ease; }
+.faq-item.open .faq-a { max-height: 200px; }
+.faq-a p { font-size: 14px; color: var(--muted); line-height: 1.6; padding-bottom: 16px; }
+
+.cta-section { text-align: center; padding: 64px 24px 0; max-width: 640px; margin: 0 auto; }
+.cta-section h2 { font-size: 32px; font-weight: 900; color: var(--graphite); letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 12px; }
+.cta-section p { font-size: 16px; color: rgba(26,26,46,0.55); margin-bottom: 28px; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+.disclaimer { max-width: 640px; margin: 48px auto 0; padding: 0 24px; text-align: center; }
+.disclaimer p { font-size: 12px; color: rgba(26,26,46,0.4); line-height: 1.6; }
+
+.divider { height: 1px; background: rgba(26,26,46,0.08); max-width: 1280px; margin: 48px auto 0; }
+
+footer { background: rgb(58, 41, 77); border-top: 1px solid rgba(255,255,255,0.12); padding: 32px 24px; margin-top: 64px; }
+.footer-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.footer-left img { height: 24px; display: block; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--white); }
+
+@media (max-width: 1100px) {
+  .track-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 880px) {
+  .track-grid { grid-template-columns: repeat(2, 1fr); }
+  .findings-grid { grid-template-columns: 1fr; }
+  .plan-grid { grid-template-columns: 1fr; }
+  .bundle-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .hero h1 { font-size: 32px; }
+  .hero-stats { gap: 24px; }
+  .hero-stat .stat-num { font-size: 24px; }
+  .track-grid { grid-template-columns: 1fr; }
+  .leaderboard-table .bar-cell { display: none; }
+  nav { gap: 16px; }
+  nav a:not(.cta-btn) { display: none; }
+}
+
+.quote-block {
+  max-width: 640px;
+  margin: 0 auto 32px;
+  padding: 28px 32px;
+  border-left: 3px solid rgba(255,255,255,0.5);
+  background: rgba(26,26,46,0.15);
+  border-radius: 0 12px 12px 0;
+  text-align: left;
+  backdrop-filter: blur(4px);
+}
+.quote-block blockquote {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.5;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+.quote-block .quote-attr {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  font-style: normal;
+}
+.quote-block .quote-attr a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-weight: 600;
+}
+.quote-block .quote-attr a:hover {
+  text-decoration: underline;
+}
+
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.team-card { text-align: center; padding: 0; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.25); backdrop-filter: blur(12px); transition: transform 0.15s, box-shadow 0.15s; }
+.team-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(26,26,46,0.12); }
+.team-avatar { width: 80px; height: 80px; border-radius: 50%; background: rgba(255,255,255,0.3); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700; color: #7B4F9E; border: 2px solid rgba(255,255,255,0.3); }
+.team-img { width: 100%; height: 180px; object-fit: cover; display: block; }
+.team-card-body { padding: 20px; }
+.team-card h4 { font-size: 18px; font-weight: 700; color: var(--onyx); margin-bottom: 4px; }
+.team-card .team-role { font-size: 13px; font-weight: 600; color: #7B4F9E; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px; }
+.team-card p { font-size: 14px; color: var(--muted); line-height: 1.5; }
+@media (max-width: 640px) { .team-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="#" class="header-logo" onclick="event.preventDefault();">
+      <img src="Untitled design.png" alt="GTA Academy" style="height:40px;display:block;">
+    </a>
+    <nav>
+      <a href="#tracks">Courses</a>
+      <a href="#pricing">Pricing</a>
+      <a href="https://www.skool.com/gta-academy" class="cta-btn" target="_blank" rel="noopener">Get Started</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Start Your GTA Business Today</h1>
+  <p class="subtitle">GTA Academy equips you with the knowledge and tools required to build your GTA business. Get started today so that your business is fully operational by the time GTA6 launches.</p>
+
+  <div class="quote-block">
+    <blockquote>"This game will produce millionaires. We're living in a time where UGC [user-generated content] is a major thing."</blockquote>
+    <div class="quote-attr">HipHopGamer, via <a href="https://www.pcgamer.com/games/grand-theft-auto/hiphopgamer-says-gta-6s-user-generated-content-will-produce-millionaires/" target="_blank" rel="noopener">PC Gamer</a></div>
+  </div>
+
+  <a href="https://www.skool.com/gta-academy" class="hero-cta" target="_blank" rel="noopener">Start Building Today</a>
+</section>
+
+<div class="divider"></div>
+<section class="section">
+  <div class="section-header">
+    <h2>Multiple Paths to Building Your GTA Business</h2>
+  </div>
+  <p class="section-desc">We offer 4 educational tracks. Choose which is best for you or master them all.</p>
+  <div class="track-grid">
+    <div class="track-card">
+      <div class="track-thumb" style="background-image:url('builder_icon_clean.png');background-size:cover;background-position:center;"></div>
+      <div class="track-info">
+        <h4>Builder</h4>
+        <p>Write scripts, build resources, and create the tools that power every GTA server. Covers Lua foundations through advanced systems like custom jobs, inventories, and NUI interfaces. Your deliverable: a FiveM resource pack of 3 to 5 polished, sellable scripts.</p>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-thumb" style="background-image:url('operator_icon_clean.png');background-size:cover;background-position:center;"></div>
+      <div class="track-info">
+        <h4>Operator</h4>
+        <p>Launch and manage your own FiveM server from the ground up, handling infrastructure, community growth, staff systems, donation stores, player retention, and multi-server scaling. Your deliverable: a live, publicly listed FiveM server with 30+ recurring players.</p>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-thumb" style="background-image:url('creator_icon_clean.png');background-size:cover;background-position:center;"></div>
+      <div class="track-info">
+        <h4>Creator</h4>
+        <p>Capture cinematic GTA clips, edit them into viral short-form and long-form content, and grow an audience across TikTok, YouTube, and Twitch through consistent posting and platform-native strategy. Your deliverable: a content brand with 1,000+ followers on at least one platform.</p>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-thumb" style="background-image:url('seller_icon_clean.png');background-size:cover;background-position:center;"></div>
+      <div class="track-info">
+        <h4>Seller</h4>
+        <p>Package scripts, server templates, maps, vehicles, and digital assets into products, then list and sell them through Tebex and third-party marketplaces with proper licensing, pricing, and customer support. Your deliverable: a storefront with 5+ listed products generating sales.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+<section class="section">
+  <div class="section-header">
+    <h2>Capture the Biggest Opportunity in Gaming History</h2>
+  </div>
+  <p class="section-desc">GTAV generated over $8 billion across its lifetime, and analysts project GTA6 reaching $7.6 billion within 60 days of launch.</p>
+  <div class="findings-grid">
+    <div class="finding-card" style="background:#FFF9C4;border-color:#FFF9C4;backdrop-filter:none;">
+      <h3>Master the Game</h3>
+      <p>Become an expert in the business of GTA through GTA Academy's comprehensive lessons.</p>
+    </div>
+    <div class="finding-card" style="background:#C8E6C9;border-color:#C8E6C9;backdrop-filter:none;">
+      <h3>Build Your Server</h3>
+      <p>Use GTA Academy's tutorials to build your first server, script in-world scenarios, attract players, and create content.</p>
+    </div>
+    <div class="finding-card" style="background:#FFE0B2;border-color:#FFE0B2;backdrop-filter:none;">
+      <h3>Customer Service</h3>
+      <p>Once you've learned the lessons and applied your knowledge, GTA Academy's team is always standing by to help you fix bugs and handle customer service.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+<section class="section" id="tracks">
+  <div class="section-header">
+    <h2>The First Educational Resource for GTA Entrepreneurs</h2>
+  </div>
+  <p class="section-desc">Structured learning tracks covering every discipline in the GTA creator economy.</p>
+  <div class="track-grid">
+    <div class="track-card">
+      <div class="track-thumb" style="background-image:url('lua_icon_clean.png');background-size:cover;background-position:center;"></div>
+      <div class="track-info">
+        <h4>Lua Foundations</h4>
+        <p>Learn the programming language that powers every FiveM server from the ground up.</p>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-thumb" style="background-image:url('mastery_icon_clean.png');background-size:cover;background-position:center;"></div>
+      <div class="track-info">
+        <h4>FiveM Server Mastery</h4>
+        <p>Go from a blank VPS to a fully configured, publicly listed FiveM server.</p>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-thumb" style="background-image:url('scripting_icon_clean.png');background-size:cover;background-position:center;"></div>
+      <div class="track-info">
+        <h4>Advanced Scripting</h4>
+        <p>Build production-grade resources that power real servers and generate real revenue.</p>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-thumb" style="background-image:url('contentcreation_icon_clean.png');background-size:cover;background-position:center;"></div>
+      <div class="track-info">
+        <h4>Content Creation</h4>
+        <p>Capture cinematic GTA clips, edit viral videos, and grow an audience that pays.</p>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-thumb" style="background-image:url('so_icon_clean.png');background-size:cover;background-position:center;"></div>
+      <div class="track-info">
+        <h4>Server Operations</h4>
+        <p>Master the business side of running and scaling a profitable GTA server network.</p>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-thumb" style="background-image:url('marketplace_icon_clean.png');background-size:cover;background-position:center;"></div>
+      <div class="track-info">
+        <h4>Digital Marketplace</h4>
+        <p>Turn your scripts, maps, and assets into products you can sell on day one.</p>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-thumb" style="background-image:url('rp_icon_clean.png');background-size:cover;background-position:center;"></div>
+      <div class="track-info">
+        <h4>Roleplay World-Building</h4>
+        <p>Design immersive roleplay experiences that keep players coming back every night.</p>
+      </div>
+    </div>
+    <div class="track-card">
+      <div class="track-thumb" style="background-image:url('readiness_icon_clean.png');background-size:cover;background-position:center;"></div>
+      <div class="track-info">
+        <h4>GTA6 Readiness</h4>
+        <p>Position your skills and infrastructure to capture the GTA6 wave on launch day.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+<section class="section">
+  <div class="section-header">
+    <h2>The Team Behind GTA Academy</h2>
+  </div>
+  <p class="section-desc">Built by people who live and breathe the GTA ecosystem.</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <img src="whitney_icon_clean.png" alt="Whitney" class="team-img">
+      <div class="team-card-body">
+        <h4>Whitney</h4>
+        <p>Growth strategist who has helped thousands of entrepreneurs build small businesses and has been recognized by Forbes as an industry leading content creator. Now focused on bringing that same energy to the GTA creator economy.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="austyn_icon_clean.png" alt="Koky" class="team-img">
+      <div class="team-card-body">
+        <h4>Koky</h4>
+        <p>Veteran FiveM server owner and community builder who has launched and operated multiple high-population roleplay servers, giving him firsthand expertise in every aspect of running a GTA business.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <img src="aldo_icon_clean.png" alt="Aldo" class="team-img">
+      <div class="team-card-body">
+        <h4>Aldo</h4>
+        <p>Full-stack developer and Lua scripting specialist with years of experience building production FiveM resources, server infrastructure, and the technical systems that power profitable GTA servers.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+<section class="section" id="pricing">
+  <div class="section-header">
+    <h2>Pricing and Support</h2>
+  </div>
+  <p class="section-desc">Choose the plan that fits where you are right now, and upgrade or switch at any time as your needs evolve.</p>
+  <div class="pricing-toggle">
+    <span class="active-toggle" id="monthlyLabel">Monthly</span>
+    <div class="toggle-track" id="billingToggle" onclick="toggleBilling()"><div class="toggle-knob"></div></div>
+    <span id="annualLabel">Annual</span>
+    <span class="save-badge">Save 20%</span>
+  </div>
+  <div class="plan-grid" id="planGrid" style="margin-top:28px;">
+    <div class="plan-card featured">
+      <div class="plan-badge">Most Popular</div>
+      <div class="plan-name">Standard</div>
+      <div class="plan-tagline">Full access to all courses, workshops, and news updates.</div>
+      <div class="plan-price">
+        <div class="price-monthly"><span class="price-amount">$95</span><span class="price-period">/mo</span></div>
+        <div class="price-annual"><span class="price-amount">$76</span><span class="price-period">/mo</span></div>
+      </div>
+      <ul class="plan-features">
+        <li><span class="check">&#10003;</span> FULL GTA Business Builder Training</li>
+        <li><span class="check">&#10003;</span> Weekly office hours call with the GTA Academy team to ask questions</li>
+        <li><span class="check">&#10003;</span> Learn about the latest GTA news and tools</li>
+        <li><span class="check">&#10003;</span> The complete private server builder tutorial</li>
+        <li><span class="check">&#10003;</span> More courses progressively added</li>
+        <li><span class="check">&#10003;</span> Collaborate with a community of GTA builders online</li>
+      </ul>
+      <a href="https://www.skool.com/gta-academy" class="plan-btn plan-btn-primary" target="_blank" rel="noopener">Go Standard</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Premium</div>
+      <div class="plan-tagline">Hands-on support for serious GTA business operators.</div>
+      <div class="plan-price">
+        <div class="price-monthly"><span class="price-amount">$1,000</span><span class="price-period">/mo</span></div>
+        <div class="price-annual"><span class="price-amount">$800</span><span class="price-period">/mo</span></div>
+      </div>
+      <ul class="plan-features">
+        <li><span class="check">&#10003;</span> Everything included in  Standard</li>
+        <li><span class="check">&#10003;</span> Once a month 1-on-1 call with the GTA Academy team to review your server and answer questions</li>
+      </ul>
+      <a href="https://www.skool.com/gta-academy" class="plan-btn plan-btn-dark" target="_blank" rel="noopener">Go Premium</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+<section class="section" id="custom-builds">
+  <div class="section-header">
+    <h2>RC Customs</h2>
+  </div>
+  <p class="section-desc">Launch your private GTA server without touching a line of code. GTA Academy's team designs, builds, and maintains your custom FiveM server so you can focus on your community, your content, or your brand.</p>
+  <div class="custom-builds-wrap">
+    <div class="custom-builds-copy">
+      <h3>Custom Server Services</h3>
+      <p>Our team handles every layer of your server so it launches fast, runs clean, and scales with community growth. Every build is tailored to your vision.</p>
+      <ul>
+        <li><span class="check">&#10003;</span> Full server architecture, VPS provisioning, and FiveM deployment</li>
+        <li><span class="check">&#10003;</span> Custom scripts, jobs, inventories, and UI tailored to your theme</li>
+        <li><span class="check">&#10003;</span> Roleplay world-building, map edits, and vehicle pack curation</li>
+        <li><span class="check">&#10003;</span> Staff tooling, donation store setup, and payment integration</li>
+        <li><span class="check">&#10003;</span> Ongoing maintenance, monitoring, updates, and on-call support</li>
+        <li><span class="check">&#10003;</span> Launch strategy, community growth guidance, and content playbooks</li>
+      </ul>
+    </div>
+    <div class="contact-form">
+      <h3>Request a Build</h3>
+      <form id="custom-build-form" action="https://formsubmit.co/chad@robotchad.com" method="POST" onsubmit="submitCustomBuild(event)">
+        <input type="hidden" name="_subject" value="New RC Customs Server Request">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_autoresponse" value="Your request has been received! A member of our team will reach out in the next 24 hours.">
+        <div class="form-row-split">
+          <div class="form-row">
+            <label for="cb-name">Name</label>
+            <input type="text" id="cb-name" name="name" required>
+          </div>
+          <div class="form-row">
+            <label for="cb-email">Email</label>
+            <input type="email" id="cb-email" name="email" required>
+          </div>
+        </div>
+        <div class="form-row-split">
+          <div class="form-row">
+            <label for="cb-server-type">Server Type</label>
+            <select id="cb-server-type" name="server_type">
+              <option value="roleplay">Roleplay</option>
+              <option value="racing">Racing</option>
+              <option value="deathmatch">Combat / Deathmatch</option>
+              <option value="community">Community / Social</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <label for="cb-budget">Budget</label>
+            <select id="cb-budget" name="budget">
+              <option value="under-5k">Under $5,000</option>
+              <option value="5-15k">$5,000 to $15,000</option>
+              <option value="15-50k">$15,000 to $50,000</option>
+              <option value="50k-plus">$50,000+</option>
+              <option value="tbd">Not sure yet</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <label for="cb-timeline">Timeline</label>
+          <select id="cb-timeline" name="timeline">
+            <option value="under-2-weeks">Under 2 weeks</option>
+            <option value="2-4-weeks">2 to 4 weeks</option>
+            <option value="1-3-months">1 to 3 months</option>
+            <option value="3-plus-months">3+ months</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="cb-vision">Tell us about your vision</label>
+          <textarea id="cb-vision" name="vision" placeholder="What kind of server are you building? What features matter most? What problems are you trying to solve?" required></textarea>
+        </div>
+        <button type="submit" class="form-submit">Submit Request</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="cb-modal-overlay" id="cb-modal-overlay">
+  <div class="cb-modal">
+    <h3>Request Received</h3>
+    <p>Your request has been received! A member of our team will reach out in the next 24 hours.</p>
+    <button type="button" onclick="closeCustomBuildModal()">Close</button>
+  </div>
+</div>
+
+<div class="divider"></div>
+<section class="section">
+  <div class="section-header">
+    <h2>FAQ</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><h4>Do I need any prior coding experience?</h4><span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>No. The Lua Foundations track starts from absolute zero and assumes you have never written a line of code before, walking you through every concept from variables through to advanced patterns before you touch FiveM scripting.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><h4>Will this work for GTA6 or only GTAV?</h4><span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>The core skills you learn (Lua, server management, content creation, digital sales) transfer directly to GTA6, and the GTA6 Readiness track is specifically designed to prepare you for the transition with updated content as new information becomes available.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><h4>How long does it take to complete the curriculum?</h4><span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Most students working 5 to 10 hours per week work through the full curriculum in 10 to 16 weeks, though the pace is entirely self-directed and you retain access to all content for as long as your subscription is active.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><h4>What if I want to cancel?</h4><span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>You can cancel your subscription at any time from your account settings, and you will retain access to all content through the end of your current billing period with no penalties or hidden fees.</p></div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)"><h4>Do you keep adding new content?</h4><span class="faq-icon">+</span></div>
+      <div class="faq-a"><p>Constantly. We are always adding new workshops, curriculum modules, and timely updates so that GTA Academy subscribers stay informed about GTA news, platform changes, modding developments, and emerging opportunities across the ecosystem.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-section">
+  <h2>GTA6 is coming. Be ready.</h2>
+  <a href="https://www.skool.com/gta-academy" class="hero-cta" target="_blank" rel="noopener">Build Your GTA Business</a>
+</div>
+
+<div class="disclaimer">
+  <p>GTA Academy GTA Academy is an independent educational platform and is not affiliated with, endorsed by, or sponsored by Rockstar Games, Take-Two Interactive, or the FiveM / Cfx.re team. GTA, Grand Theft Auto, and related marks are trademarks of Take-Two Interactive. All revenue projections cited on this page are based on third-party analyst estimates and are not guarantees of future earnings. Individual results depend on effort, market conditions, and execution.</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-left">
+      <img src="Untitled design.png" alt="GTA Academy" style="height:32px;display:block;">
+    </div>
+    <div class="footer-links">
+      <a href="#tracks">Courses</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleBilling() {
+  var track = document.getElementById('billingToggle');
+  var grid = document.getElementById('planGrid');
+  var mLabel = document.getElementById('monthlyLabel');
+  var aLabel = document.getElementById('annualLabel');
+  track.classList.toggle('annual');
+  grid.classList.toggle('annual-active');
+  if (track.classList.contains('annual')) {
+    mLabel.classList.remove('active-toggle');
+    aLabel.classList.add('active-toggle');
+  } else {
+    mLabel.classList.add('active-toggle');
+    aLabel.classList.remove('active-toggle');
+  }
+}
+
+function toggleFaq(el) {
+  var item = el.parentElement;
+  item.classList.toggle('open');
+}
+
+function submitCustomBuild(e) {
+  e.preventDefault();
+  var form = e.target;
+  var data = new FormData(form);
+  fetch(form.action, {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(function() {
+    form.reset();
+    document.getElementById('cb-modal-overlay').classList.add('show');
+  }).catch(function() {
+    form.reset();
+    document.getElementById('cb-modal-overlay').classList.add('show');
+  });
+}
+
+function closeCustomBuildModal() {
+  document.getElementById('cb-modal-overlay').classList.remove('show');
+}
+
+document.addEventListener('click', function(e) {
+  var overlay = document.getElementById('cb-modal-overlay');
+  if (e.target === overlay) { overlay.classList.remove('show'); }
+});
+</script>
+
+</body>
+</html>
